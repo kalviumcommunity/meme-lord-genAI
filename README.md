@@ -12,11 +12,17 @@ A viral-quality meme generator powered by Google's Gemini AI. Transform any topi
 - **ASCII Art**: Terminal-rendered memes
 - **Export Options**: Save as Markdown, JSON, or text
 
-## 📦 Installation
+## � Requirements
+
+- Python 3.8 or higher
+- Google Gemini API key
+- Internet connection for API calls
+
+## �📦 Installation
 
 ```bash
-git clone https://github.com/username/memelord.git
-cd memelord
+git clone https://github.com/kalviumcommunity/meme-lord-genAI.git
+cd meme-lord-genAI
 pip install -r requirements.txt
 ```
 
@@ -83,4 +89,36 @@ memelord/
 
 ## 🤝 Contributing
 
-Pull requests welcome! Please ensure memes are appropriately dank.
+We welcome contributions to make MemeLord even more legendary! Here's how you can help:
+
+### Getting Started
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes and test them
+4. Commit your changes: `git commit -m 'Add amazing feature'`
+5. Push to your branch: `git push origin feature/amazing-feature`
+6. Open a Pull Request
+
+### Guidelines
+- Ensure your code follows Python best practices
+- Add tests for new features
+- Update documentation as needed
+- Keep memes appropriately dank and inclusive
+- Test with different creativity modes
+
+### Ideas for Contributions
+- New meme templates
+- Additional export formats
+- Performance optimizations
+- Better error handling
+- More creativity modes
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- Google Gemini AI for powering the meme generation
+- The meme community for endless inspiration
+- Contributors who make this project awesome
