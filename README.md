@@ -2,6 +2,45 @@
 
 A viral-quality meme generator powered by Google's Gemini AI. Transform any topic into internet gold with GenZ humor and deep meme culture knowledge.
 
+## 🧠 GenAI Implementation Details
+
+### System & User Prompts
+MemeLord uses carefully crafted system prompts to make Gemini act as a sarcastic, Gen Z meme expert with deep knowledge of internet culture. The prompts include:
+- Meme format expertise and cultural context understanding
+- Slang and internet language patterns for authentic humor
+- Template-specific instructions for different meme formats
+- Contextual awareness for current trends and references
+
+### Structured Output
+All meme responses follow a strict JSON schema ensuring consistency:
+```json
+{
+  "template": "Popular meme format name",
+  "top_text": "Setup text or reaction",
+  "bottom_text": "Punchline or contrast",
+  "humor_type": "Category of humor used",
+  "alt_text": "Accessibility description",
+  "confidence_score": 0.95,
+  "trending_score": 0.87
+}
+```
+
+### Function Calling Architecture
+The CLI implements several specialized functions:
+- `get_meme_templates()`: Retrieves available meme formats with usage stats
+- `generate_caption(prompt, style, temperature)`: Creates contextual text
+- `analyze_humor_type(content)`: Categorizes joke style
+- `render_ascii_meme(template, texts)`: Terminal visualization
+- `validate_output_structure(json)`: Ensures proper formatting
+
+### RAG (Retrieval Augmented Generation)
+Enhanced context through local knowledge base:
+- **Meme Corpus**: 500+ popular meme formats with usage examples
+- **Trend Database**: Current internet slang and viral topics
+- **Template Metadata**: Success rates, audience preferences, cultural context
+- **Dynamic Retrieval**: Matches user input to most relevant meme styles
+- **Context Injection**: Provides Gemini with format-specific examples
+
 ## 🚀 Features
 
 - **AI-Powered Meme Generation**: Uses Gemini with specialized prompts for authentic meme creation
@@ -60,23 +99,33 @@ python memelord.py "AI replacing developers" --save markdown
 }
 ```
 
-## 🏗️ Architecture
+## 🏗️ Architecture & Performance
 
 ```
 memelord/
 ├── memelord.py           # Main CLI entry point
 ├── core/
-│   ├── gemini_client.py  # Gemini API integration
+│   ├── gemini_client.py  # Gemini API integration with rate limiting
 │   ├── prompts.py        # System prompts & templates
 │   └── output_parser.py  # JSON structure validation
 ├── rag/
-│   ├── meme_corpus.json  # Meme formats database
-│   └── retrieval.py      # RAG implementation
+│   ├── meme_corpus.json  # Meme formats database (500+ templates)
+│   ├── trending_data.json # Current internet trends & slang
+│   └── retrieval.py      # Efficient vector-based RAG
 ├── utils/
 │   ├── ascii_renderer.py # Terminal meme display
-│   └── exporters.py      # Save functionality
+│   ├── exporters.py      # Save functionality
+│   └── cache.py          # Response caching for efficiency
 └── requirements.txt
 ```
+
+### Performance & Scalability Features
+- **Caching System**: Reduces API calls by caching similar requests
+- **Rate Limiting**: Handles API quotas gracefully with exponential backoff
+- **Async Processing**: Non-blocking operations for better responsiveness  
+- **Vector Search**: Efficient RAG retrieval using embeddings
+- **Batch Processing**: Support for multiple meme generation
+- **Memory Management**: Optimized for large corpus datasets
 
 ## 🎨 CLI Flags
 
